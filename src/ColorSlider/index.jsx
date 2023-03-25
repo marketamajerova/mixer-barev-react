@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 
-const ColorSlider = ({baseColor, colorName}) => {
+const ColorSlider = ({baseColor, colorName, onValueChange}) => {
     return (
         <>
             <label htmlFor={baseColor}>{colorName}</label>
@@ -12,7 +12,8 @@ const ColorSlider = ({baseColor, colorName}) => {
                     id={`${baseColor}Slider`}
                     min="0"
                     max="255"
-                    value="0"
+                    defaultValue="0"
+                    onChange = {(e) => onValueChange(e.target.value)}
                 />
         </>
     )
